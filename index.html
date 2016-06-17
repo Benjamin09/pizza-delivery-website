@@ -21,55 +21,78 @@
     </ul>
   </div>
 
+  <div class="container">
+    <h2> The Pizza Launch Pad</h2>
+      <div  class="row">
+        <div class="col-md-3">
+          <form id='pizzaOrder'>
+          <h3> Please select what size </h3>
+            <div class="form-group">
+              <label for="size">Size</label>
+          <h4><select class="form-control" id="size"></h4>
+              <option value="-1"> small rocket </option>
+              <option value="1"> medium rocket </option>
+              <option value="2"> large missle </option>
+              <option value="3"> The Atom Bomb! </option>
+              <input type="value" class="form-group" id="size">
+              </select>
+            </div>
+            <div id="showing-1">
+              <h4> please select a rocket sauce </h4>
+              <div class="form-group">
+                <label for="sauce">Rocket Sauce</label>
+                <h4><select class="form-control" id="sauce"></h4>
+                    <option value="-1"> Traditional red rocket sauce </option>
+                    <option value="1"> Advanced rocket sauce (zesty)</option>
+                    <option value="2"> White rocket sauce </option>
+                    <option value="3"> No sauce fuel </option>
+                    </select>
+                <input type="value" class="form-group" id="taskTitle">
+              </div>
+            </div>
+            <div id="showing2">
+              <h4> Please Pick your Toppings</h4>
+              <div class="form-group">
+                <label for="topings">Topings</label>
+                <h4><select class="form-control" id="Topings"></h4>
+                      <option value="-1">  </option>
+                      <option value="1"> Black Olivea </option>
+                      <option value="2"> Bell Peppers </option>
+                      <option value="3"> Mushrooms </option>
+                      <option value="4"> fishies </option>
+                      <option value="5"> Bacon </option>
+                    </select>
+                <input type="value" class="form-group" id="taskTitle">
+              </div>
+            </div>
+          <!-- users input to output -->
+            <button type="submit" class="btn btn-info">submit</button>
+          </form>
+          <ul id='taskList'>
+          </ul>
+        </div>
+        <div class="col-md-8">
+          <div id="taskDetails">
+            <p>Your Pizza Size is :<p><span class='size'></span></p>
+            <p>Your sauce choice is :<p><span class='sauce'></span></p>
+            <p>Your choice of toppings are :<p><span class='toppings'></span></p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <div class="container">
-      <h4> Please select what size </h4>
-      <h4><select class="form-control" id="size"></h4>
-          <option value="-1"> small rocket </option>
-          <option value="1"> medium rocket </option>
-          <option value="2"> large missle </option>
-          <option value="3"> The Atom Bomb! </option>
-          </select>
 
-    <div id="showing-1">
-      <h4> please select a rocket sauce </h4>
-      <h4><select class="form-control" id="sauce"></h4>
-          <option value="-1"> Traditional red rocket sauce </option>
-          <option value="1"> Advanced rocket sauce (zesty)</option>
-          <option value="2"> White rocket sauce </option>
-          <option value="3"> No sauce fuel </option>
-          </select>
-    </div>
-    <div id="showing2">
-      <h4> Please Pick your Toppings </h4>
-    <h4><select class="form-control" id="Topings"></h4>
-          <option value="-1">  </option>
-          <option value="1"> Black Olivea </option>
-          <option value="2"> Bell Peppers </option>
-          <option value="3"> Mushrooms </option>
-          <option value="4"> fishies </option>
-          <option value="5"> Bacon </option>
 
-        </select>
-    </div>
-    <div id="showing3">
-      <h4> </h4>
-    <h4><select class="form-control" id="jaws-3-1/2"></h4>
-          <option value="-1"> 11pm - 12:35pm </option>
-          <option value="1"> 12pm - 1:35pm </option>
-          <option value="2"> 2pm - 3:35pm </option>
-          <option value="3"> 5pm - 6:35pm </option>
-        </select>
-    </div>
-    <div id="showing4">
-      <h4> </h4>
-    <h4><select class="form-control" id="cindy-mouse"></h4>
-          <option value="-1"> 11pm - 12:30pm </option>
-          <option value="1"> 11pm - 12:30pm </option>
-          <option value="2"> 2pm - 3:30pm </option>
-          <option value="3"> 6pm - 7:30pm </option>
-        </select>
-    </div>
+
+
+
+
+
+
+
+
+
+
 
 
 
