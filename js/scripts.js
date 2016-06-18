@@ -1,4 +1,4 @@
-function Task(size,sauce,toppings) {
+function pizzaOrder(size,sauce,toppings) {
   this.size = size;
   this.sauce = sauce;
   this.toppings = toppings;
@@ -6,21 +6,21 @@ function Task(size,sauce,toppings) {
 }
 
 $(document).ready(function(){
-  $('#toDoForm').submit(function(event) {
+  $('#pizzaOrder').submit(function(event) {
     event.preventDefault();
     var size = $('#size').val();
     var sauce = $('#sauce').val();
     var toppings = $('#toppings').val();
-    var anotherPizza = new Task(size,sauce,toppings);
+    var anotherPizza = new pizzaOrder(size,sauce,toppings);
 
-    $('#taskList').append("<li><span class ='taskClick'>"+ newTask.taskTitle +"</span><span class='removeButton glyphicon glyphicon-remove'></span></li>");
+    $('#pizzaOrder').append("<li><span class ='taskClick'>"+ anotherPizza.pizzaOrder +"</span><span class='removeButton glyphicon glyphicon-remove'></span></li>");
 
     $('.taskClick').last().click(function() {
-      $('#taskDetails').show();
-      $('.taskTitle').text(newTask.taskTitle);
-      $('.startTime').text(newTask.startTime);
-      $('.endTime').text(newTask.endTime);
-      $('.details').text(newTask.details);
+      $('#pizzaOrder').show();
+      $('.pizzaSize').text(anotherPizza.pizzaSize);
+      $('.pizzaSauce').text(anotherPizza.pizzaSauce);
+      $('.pizzaToppings').text(anotherPizza.pizzaToppings);
+    
     });
 
     $('.removeButton').last().click(function(){
