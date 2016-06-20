@@ -20,65 +20,40 @@
     </nav>
     <!-- drop down menu -->
     <div class="container">
-      <h3> The Pizza Launch Pad</h3>
-        <div  class="row">
-          <div class="col-md-3">
-            <form id='pizzaOrder'>
-            <h4> Please select which size </h4>
-              <div class="form-group">
-                <label for="size">Size</label>
-            <h4><select class="form-control" id="size"></h4>
-                <option value="-1"> small rocket </option>
-                <option value="1"> medium rocket </option>
-                <option value="2"> large missle </option>
-                <option value="3"> The Atom Bomb! </option>
-                <input type="value" class="form-group" id="size">
-                </select>
-              </div>
-              <div id="showing-1">
-                <h4> please select a rocket sauce </h4>
-                <div class="form-group">
-                  <label for="sauce">Rocket Sauce</label>
-                  <h4><select class="form-control" id="sauce"></h4>
-                      <option value="-1"> Traditional red rocket sauce </option>
-                      <option value="1"> Advanced rocket sauce (zesty)</option>
-                      <option value="2"> White rocket sauce </option>
-                      <option value="3"> No sauce fuel </option>
-                      </select>
-                  <input type="value" class="form-group" id="taskTitle">
-                </div>
-              </div>
+       <h1>Pizza! Order some?</h1>
 
-              <div id="showing2">
-                <h4> Please Pick your Toppings</h4>
-                <div class="form-group">
-                  <label for="topings">Topings</label>
-                  <h4><select class="form-control" id="Topings"></h4>
-                        <option value="-1">  </option>
-                        <option value="1"> Black Olivs </option>
-                        <option value="2"> Bell Peppers </option>
-                        <option value="3"> Mushrooms </option>
-                        <option value="4"> fishies </option>
-                        <option value="5"> Bacon </option>
-                      </select>
-                  <input type="value" class="form-group" id="taskTitle">
-                </div>
-              </div>
-            <!-- users input to output -->
-              <button type="submit" class="btn btn-info">submit</button>
-            </form>
-            <ul id="pizzaOrder">
-            </ul>
-          </div>
-          <div class="col-md-8">
-            <div id="pizzaOrder">
-              <p>Your Pizza Size is :<p><span class='size'></span></p>
-              <p>Your sauce choice is :<p><span class='sauce'></span></p>
-              <p>Your choice of toppings are :<p><span class='toppings'></span></p>
-            </div>
-          </div>
-        </div>
-      </div>
+
+       <form id="new-order">
+
+
+         <div id="new-pizza">
+           <div class="single-pie-forms">
+             <div class="form-group">
+               <label for="toppings">Toppings:</label>
+               <input type="text" class="form-control" id="toppings">
+             </div>
+
+
+             <div class="form-group">
+               <label for="size">Size:</label>
+               <input type="text" class="form-control" id="size">
+             </div>
+
+
+             <div class="form-group">
+               <label for="quantity">Quantity:</label>
+               <input type="text" class="form-control" id="quantity">
+             </div>
+           </div>
+         </div>
+
+
+         <button class="btn-warning" id="add-pizza">Add Another Pie</button>
+         <button class="btn-success" id="order">Order</button>
+       </form>
+
+
+     </div>
 
   </body>
 </html>
