@@ -48,19 +48,18 @@ Pizza.prototype.addToppings = function(){
       priceOptionsArray.push(toppingChoice[prop]['price']);
       }
     }
-    return pizzaPrice;
+    return PriceOptionsArray;
   }
 }
 /////price compulation//////////////////
 Pizza.prototype.totalPrice = function(){
   var finalPrice = 0;
   for (var i=0; i < priceOptionsArray.length; i++){
-    finalPrice = finalPrice + pizzaPrice[i];
-  }
- return finalPrice.toFixed(2) * this.quantity;
+    finalPrice = finalPrice +  priceOptionsArray[i];
+  }return finalPrice.toFixed(2) * this.quantity;
 }
-// $(function() {
-  $("#pizzaForm").submit(function(event) {
+$(function() {
+  $("#buttonSubmit").submit(function(event) {
     debugger;
     event.preventDefault();
     $('#orderSummary, #orderPrice').empty();
@@ -71,15 +70,21 @@ Pizza.prototype.totalPrice = function(){
     $.each($("input[name='topping']:checked"), function() {
     pizzaToppings.push($(this).val());
     });
-    if (quantity <= 0) {
-      alert("Please enter a positive quantity");
-    } else if ($("input[name='topping']:checked").length <= 0 ||  $("input[name='sauce']:checked").length <= 0){
-      alert("Please select toppings/sauce");
-    } else {  $('#orderSummary').append(newPizza.quantity + " " + newPizza.size + '" pizza(s) with ' + newPizza.sauce.toLowerCase() + ", " + pizzaToppings.toLowerCase());
-      $('#orderPrice').append("Your total is: $" + newPizza.totalPrice(newPizza.basePrice(pizzaSize)) + newPizza.addSauce(pizzaSauce) + newPizza.addToppings(pizzaToppings));
-      $('#order').show();
-    }
-    document.getElementById("pizzaForm").reset();
 
-  }
-// })
+    if (quantity <= 0){
+      alert("Please enter a positive quantity");
+    }else if($("input[name='topping']:checked").length <= 0 ||  $("input[name='sauce']:checked").length <= 0){
+      alert("Please select toppings/sauce");
+    }else {
+      $(".order").show();
+
+      $('#orderSummary').append(newPizza.quantity + " " + newPizza.size + '" pizza(s) with ' + newPizza.sauce.toLowerCase() + ", " + newToppings.toLowerCase());
+
+      $('#orderPrice').append("Your total is: $" newPizza.totalPrice(newPizza.basePrice(pizzaSize)) + newPizza.addSauce(pizzaSauce) + newPizza.addToppings(pizzaToppings);
+
+        document.getElementById("pizzaForm").reset();
+
+    }
+  });
+
+});
