@@ -59,7 +59,7 @@ Pizza.prototype.totalPrice = function(){
   }return finalPrice.toFixed(2) * this.quantity;
 }
 $(function() {
-  $("#buttonSubmit").submit(function(event) {
+  $("form#pizzaForm").submit(function(event) {
     debugger;
     event.preventDefault();
     $('#orderSummary, #orderPrice').empty();
@@ -80,7 +80,7 @@ $(function() {
 
       $('#orderSummary').append(newPizza.quantity + " " + newPizza.size + '" pizza(s) with ' + newPizza.sauce.toLowerCase() + ", " + newToppings.toLowerCase());
 
-      $('#orderPrice').append("Your total is: $" newPizza.totalPrice(newPizza.basePrice(pizzaSize)) + newPizza.addSauce(pizzaSauce) + newPizza.addToppings(pizzaToppings);
+      $('#orderPrice').append("Your total is: $" + newPizza.totalPrice());
 
         document.getElementById("pizzaForm").reset();
 
