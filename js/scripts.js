@@ -1,120 +1,87 @@
-// function pizzaOrder(size,sauce,toppings) {
-//   this.size = size;
-//   this.sauce = sauce;
-//   this.toppings = toppings;
-//
-// }
-//
-// $(document).ready(function(){
-//   $('#pizzaOrder').submit(function(event) {
-//     event.preventDefault();
-//     var size = $('#size').val();
-//     var sauce = $('#sauce').val();
-//     var toppings = $('#toppings').val();
-//     var anotherPizza = new pizzaOrder(size,sauce,toppings);
-//
-//     $('#pizzaOrder').append("<li><span class ='taskClick'>"+ anotherPizza.pizzaOrder +"</span><span class='removeButton glyphicon glyphicon-remove'></span></li>");
-//
-//     $('.taskClick').last().click(function() {
-//       $('#pizzaOrder').show();
-//       $('.pizzaSize').text(anotherPizza.pizzaSize);
-//       $('.pizzaSauce').text(anotherPizza.pizzaSauce);
-//       $('.pizzaToppings').text(anotherPizza.pizzaToppings);
-//
-//     });
-//
-//     $('.removeButton').last().click(function(){
-//       $(this).parent().remove();
-//     });
-//   });
-// });
+  ///////////back logic////////////////////////////
+  function Pizza(size,sauce,toppings,quantity){
+    this.size = size;
+    this.sauce = sauce;
+    this.toppings = toppings;
+    this.quantity = quantity;
+  }
+  //////price pizza array/////////////////////
+  var priceOptionsArray = [];
+  Pizza.prototype.basePrice =function(){
+    if (this.size ==="14"){
+      return priceOptionsArray.push(15.00);
+    }else if (this.size ==="12"){
+      return priceOptionsArray.push(12.00);
+    }else if (this.size ==="10"){
+      return priceOptionsArray.push(9.99);
+      return priceOptionsArray;
+    }else{
+    return "please choice a size";
+    }
+  }
+  /////////price sauce array/////////
+  Pizza.prototype.addSauce = function(){
+    var sauceChoice = [
+      {sauce: "no sauce please", price: 0.00},
+      {sauce: "Rocket Origanal", price: 0.00},
+      {sauce: "White Rocket", price: 0.50},
+      {sauce: "Zesty Red Rocket", price: 1.00}
+    ];
+    for (var prop in sauceList){
+      if (sauceChoice[prop]['sauce'] === this.sauce){
+      priceOptionsArray.push(sauceChoice[prop]['price']);
+      }
+    } return priceOptionsArray;
+  }
+  ///////price toppings array//////////////
+  Pizza.prototype.addToppings = function(){
+    var toppingsChoice = [
+      {toppings: "mushrooms", price: 0.50},
+      {toppings: "pepperoni", price: 0.50},
+      {toppings: "bacon", price: 0.70},
+      {toppings: "pinapple", price: 0.60}
+    ];
+    for (var prop in toppingsChoice){
+      for (var i=0; i < this.toppings.length; i++){
+        if (this.toppings[i] == toppingChoice[prop]['topping']){
+        priceOptionsArray.push(toppingChoice[prop]['price']);
+        }
+      }
+      return pizzaPrice;
+    }
+  }
+  /////price compulation//////////////////
+  Pizza.prototype.totalPrice = function(){
+    var finalPrice = 0;
+    for (var i=0; i < priceOptionsArray.length; i++){
+      finalPrice = finalPrice + pizzaPrice[i];
+   }
+   return finalPrice.toFixed(2) * this.quantity;
+  }
+    $(function() {
+      $("button#submit").submit(function(event) {
+        event.preventDefault();
+        $('#orderSummary, #orderPrice').empty();
+        var pizzaSize = $("input[name='size']:checked").val();
+        var pizzaSauce = $("input[name='sauce']:checked").val();
+        var quantity = ($('input#quantity').val());
+        var pizzaToppings = [];
+        $.each($("input[name='topping']:checked"), function() {
+        pizzaToppings.push($(this).val());
+        });
+        var newPizza = new Pizza(pizzaSize,pizzaSauce,pizzaToppings,pizzaCheese,quantity);
+          pizzaToppings = pizzaToppings.join(', ');
+          pizzaCheese = pizzaCheese.join(', ');
+        if (quantity <= 0) {
+          alert("Please enter a positive quantity");
+      } else if ($("input[name='topping']:checked").length <= 0 ||  $("input[name='cheese']:checked").length <= 0){
+          alert("Please select toppings/cheese");
+      } else {
+          $('#order').show();
+          $('#orderSummary').append(newPizza.quantity + " " + newPizza.size + '" pizza(s) with ' + newPizza.sauce.toLowerCase() + ", " + pizzaToppings.toLowerCase());
+          $('#orderPrice').append("Your total is: $" + newPizza.totalPrice(newPizza.basePrice(pizzaSize) + newPizza.addSauce(pizzaSauce) + newPizza.addToppings(pizzaToppings)));
+          document.getElementById("pizzaForm").reset();
 
-var Pizza = function(toppings, howBig, quantity) {
-   this.toppings = toppings;
-   this.howBig = howBig;
-   this.quantity = quantity;
- };
-
-
- Pizza.prototype.cost = function() {
-   return 10 * this.quantity;
- };
-
-
- var Order = function(pizzas) {
-   var cost = 0;
-   var confirmation = 'You have ordered ';
-   pizzas.forEach(function(pizza) {
-     cost += pizza.cost();
-     confirmation += pizza.quantity + ' ' + pizza.howBig + ' ' +
-                     pizza.toppings + ' pizzas' + '; ';
-   });
-   confirmation += "which costs a total of " + "$" + cost + ".";
-   this.confirmation = confirmation;
-   this.cost = cost;
-   this.pizzas = pizzas;
- };
-
-
-
-
- $(function() {
-   $('#add-pizza').click(function(event) {
-     event.preventDefault();
-     $('#new-pizza').append(
-       '<div class="single-pizza-forms">' +
-         '<div class="form-group">' +
-           '<label for="toppings">Toppings:</label>' +
-           '<input type="text" class="form-control" id="toppings">' +
-         '</div>' +
-
-
-         '<div class="form-group">' +
-           '<label for="size">Size:</label>' +
-           '<input type="text" class="form-control" id="size">' +
-         '</div>' +
-
-
-         '<div class="form-group">' +
-           '<label for="quantity">Quantity:</label>' +
-           '<input type="text" class="form-control" id="quantity">' +
-         '</div>' +
-       '</div>'
-     );
-   });
-
-
-   $('#order').click(function(event) {
-     event.preventDefault();
-     var pizzas = []
-     $('.single-pizza-forms').each(function() {
-
-
-       if ($(this).find('#toppings').val()) {
-         var toppings = $(this).find('#toppings').val();
-       } else {
-         var toppings = "Toppings"
-       };
-
-
-       if ($(this).find('#size').val()) {
-         var size = $(this).find('#size').val();
-       } else {
-         var size = "Size"
-       };
-
-
-       if (parseInt($(this).find('#quantity').val())) {
-         var quantity = parseInt($(this).find('#quantity').val());
-       } else {
-         var quantity = 99;
-       };
-
-
-       pizzas.push(new Pizza(toppings, size, quantity));
+       }
      });
-     var order = new Order(pizzas);
-     alert(order.confirmation);
-     // alert("You have ordered a " + order.pizzas[0].toppings + 'pizza,' + 'which costs ' + order.cost);
-   });
- });
+  });
