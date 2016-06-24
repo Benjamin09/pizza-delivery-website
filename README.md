@@ -7,12 +7,26 @@
 This application is a demonstration of constructors and prototypes using JavaScript to create a movie tickets application.
 
 ## Setup
+
 Pizza Delivery Website
 Install address-book by cloning this repository.
 
 ## Technologies Used
 
 JavaScript, CSS, HTML, major use of objects
+
+## Known Bugs
+
+None.  But we haven't really tested much, so if you find anything, let us know and we'll fix it and update the repo.  
+
+## Support and contact details
+
+Come by during class if you have questions.
+
+## Technologies Used
+
+* Bootstrap
+* JQuery
 
 ### Legals
 Creator Benjamin Heflin

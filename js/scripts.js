@@ -60,7 +60,7 @@ Pizza.prototype.totalPrice = function(){
 }
 $(function() {
   $("form#pizzaForm").submit(function(event) {
-    debugger;
+    // debugger;
     event.preventDefault();
     $('#orderSummary, #orderPrice').empty();
     var pizzaSize = $("input[name='size']:checked").val();
@@ -76,12 +76,11 @@ $(function() {
     }else if($("input[name='topping']:checked").length <= 0 ||  $("input[name='sauce']:checked").length <= 0){
       alert("Please select toppings/sauce");
     }else {
-      $(".order").show();
+        debugger;
+      $('#orderSummary').append(thisPizza.quantity + " " + thisPizza.size + '" pizza(s) with ' + thisPizza.sauce.toLowerCase() + ", " + thisPizza.toppings.toLowerCase());
 
-      $('#orderSummary').append(newPizza.quantity + " " + newPizza.size + '" pizza(s) with ' + newPizza.sauce.toLowerCase() + ", " + newToppings.toLowerCase());
-
-      $('#orderPrice').append("Your total is: $" + newPizza.totalPrice());
-
+      $('#orderPrice').append("Your total is: $" + orderSummary.totalPrice());
+        $(".order").show();
         document.getElementById("pizzaForm").reset();
 
     }
